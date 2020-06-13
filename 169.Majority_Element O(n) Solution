@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int current=nums[0];
+        int count=1;
+        for(int i=1; i<nums.size(); i++){
+            if(nums[i]==current){
+                count++;
+                current=nums[i];
+                //cout<<"if1 " <<"current: "<<current<<endl;
+                }else{
+                if(count>1)
+                    count--;
+                else{
+                //cout<<"else1 else2 " <<"current: "<<current <<" " <<count<<endl;
+                   current=nums[i];
+                    count--;
+                if(count==0)
+                    current=nums[i+1];
+                }
+                     
+            }
+        }
+        return current;
+    }
+};
